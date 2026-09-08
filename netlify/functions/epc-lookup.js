@@ -1,8 +1,11 @@
 // Netlify Function: EPC register lookup by postcode
-// Keeps the EPC_EMAIL / EPC_API_KEY credentials private on the server side.
-// Set these two values in Netlify: Site settings > Environment variables
-//   EPC_EMAIL    = the email address you signed up to epc.opendatacommunities.org with
-//   EPC_API_KEY  = your personal API key from that site
+// Uses the new "Get energy performance of buildings data" API
+// (get-energy-performance-data.communities.gov.uk), which replaced the old
+// epc.opendatacommunities.org service in 2026.
+//
+// Set this value in Netlify: Site settings > Environment variables
+//   EPC_API_KEY  = your Bearer token, shown on your account page at
+//                  get-energy-performance-data.communities.gov.uk/api/my-account
 
 exports.handler = async function (event) {
   const postcode = (event.queryStringParameters && event.queryStringParameters.postcode || '').trim();
@@ -23,7 +26,7 @@ exports.handler = async function (event) {
     };
   }
 
-  const url = `https://epc.opendatacommunities.org/api/v1/domestic/search?postcode=${encodeURIComponent(postcode)}`;
+  const url = `https://api.get-energy-performance-data.communities.gov.uk/api/domestic/search?postcode=${encodeURIComponent(postcode)}`;
 
   try {
     const res = await fetch(url, {
@@ -37,7 +40,7 @@ exports.handler = async function (event) {
     const rawText = await res.text();
 
     if (!res.ok) {
-      // 404 from the API generally just means "no records for this postcode"
+      // 404 from this API means "no certificates match this postcode"
       if (res.status === 404) {
         return {
           statusCode: 200,
@@ -54,9 +57,9 @@ exports.handler = async function (event) {
       };
     }
 
-    let data;
+    let parsed;
     try {
-      data = JSON.parse(rawText);
+      parsed = JSON.parse(rawText);
     } catch (parseErr) {
       return {
         statusCode: 502,
@@ -67,21 +70,24 @@ exports.handler = async function (event) {
       };
     }
 
-    const raw = data.rows || [];
+    // New API shape: { data: [ { addressLine1, addressLine2, ..., postcode,
+    //                             currentEnergyEfficiencyBand, registrationDate }, ... ],
+    //                   pagination: {...} }
+    const raw = parsed.data || [];
 
     // Keep only the most recent certificate per address
     const latestByAddress = {};
     raw.forEach((r) => {
-      const addressParts = [r.address1, r.address2, r.address3, r.postcode]
+      const addressParts = [r.addressLine1, r.addressLine2, r.addressLine3, r.addressLine4, r.postcode]
         .filter(Boolean)
         .join(', ');
       const key = addressParts.toLowerCase();
       const existing = latestByAddress[key];
-      if (!existing || new Date(r['lodgement-date']) > new Date(existing.date)) {
+      if (!existing || new Date(r.registrationDate) > new Date(existing.date)) {
         latestByAddress[key] = {
           address: addressParts,
-          band: r['current-energy-rating'],
-          date: r['lodgement-date'],
+          band: r.currentEnergyEfficiencyBand,
+          date: r.registrationDate,
         };
       }
     });
