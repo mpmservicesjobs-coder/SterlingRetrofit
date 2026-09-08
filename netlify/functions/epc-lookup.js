@@ -32,8 +32,11 @@ exports.handler = async function (event) {
       headers: {
         Authorization: `Basic ${auth}`,
         Accept: 'application/json',
+        'User-Agent': 'SterlingRetrofitEPCChecker/1.0 (hello@epc-check2030.com)',
       },
     });
+
+    const rawText = await res.text();
 
     if (!res.ok) {
       // 404 from the API generally just means "no records for this postcode"
@@ -43,14 +46,29 @@ exports.handler = async function (event) {
           body: JSON.stringify({ rows: [] }),
         };
       }
-      const text = await res.text();
       return {
         statusCode: 502,
-        body: JSON.stringify({ error: 'EPC register error', detail: text }),
+        body: JSON.stringify({
+          error: 'EPC register error',
+          status: res.status,
+          detail: rawText.slice(0, 500),
+        }),
       };
     }
 
-    const data = await res.json();
+    let data;
+    try {
+      data = JSON.parse(rawText);
+    } catch (parseErr) {
+      return {
+        statusCode: 502,
+        body: JSON.stringify({
+          error: 'EPC register returned an unexpected response',
+          detail: rawText.slice(0, 500),
+        }),
+      };
+    }
+
     const raw = data.rows || [];
 
     // Keep only the most recent certificate per address
