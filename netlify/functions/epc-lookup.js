@@ -14,23 +14,21 @@ exports.handler = async function (event) {
     };
   }
 
-  const email = process.env.EPC_EMAIL;
-  const apiKey = process.env.EPC_API_KEY;
+  const token = process.env.EPC_API_KEY;
 
-  if (!email || !apiKey) {
+  if (!token) {
     return {
       statusCode: 500,
       body: JSON.stringify({ error: 'EPC credentials not configured on the server' }),
     };
   }
 
-  const auth = Buffer.from(`${email}:${apiKey}`).toString('base64');
   const url = `https://epc.opendatacommunities.org/api/v1/domestic/search?postcode=${encodeURIComponent(postcode)}`;
 
   try {
     const res = await fetch(url, {
       headers: {
-        Authorization: `Basic ${auth}`,
+        Authorization: `Bearer ${token}`,
         Accept: 'application/json',
         'User-Agent': 'SterlingRetrofitEPCChecker/1.0 (hello@epc-check2030.com)',
       },
