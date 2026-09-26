@@ -8,7 +8,7 @@ It runs at `/note` (for example `offloadwaste.com/note`), sits behind a login an
 
 ## Before launch: the owner must confirm
 
-1. **Waste carrier registration (CBDU) number.** Put it in `src/config/offload.ts` as `CARRIER_REG_NO`. While it is empty the app refuses to send or save any note, and every screen says why.
+1. **Waste carrier registration (CBDU) number.** Set to CBDU662023 in `src/config/offload.ts` (`CARRIER_REG_NO`). If it is ever emptied, the app refuses to send or save any note.
 2. **SIC code 38110.** Check it is right for Offload (`OFFLOAD_SIC`).
 3. **Vans.** Add the registrations in the admin screen under Vehicles, or to `VEHICLES` in the config.
 4. **Destination sites.** Add each tip or transfer station under Destination sites, with its permit number and the date you checked it on the Environment Agency public register.

@@ -16,9 +16,9 @@ export const BUSINESS = {
   CAPACITY: "Registered upper tier waste carrier",
 } as const;
 
-// Waste carrier registration (CBDU) number. TBC with the owner.
-// While this is empty the app refuses to send or save any note.
-export const CARRIER_REG_NO = "";
+// Waste carrier registration (CBDU) number. Confirmed by the owner.
+// If this is ever emptied, the app refuses to send or save any note.
+export const CARRIER_REG_NO = "CBDU662023";
 
 // SIC 38110: collection of non-hazardous waste. Confirm with the owner.
 export const OFFLOAD_SIC = "38110";
