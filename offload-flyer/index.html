@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Offload Waste Removal | A4 Flyer</title>
+<meta name="robots" content="noindex">
+<style>
+  @font-face{ font-family: "Barlow"; font-style: normal; font-weight: 400; font-display: block; src: url(fonts/Barlow-400.woff2) format("woff2"); }
+  @font-face{ font-family: "Barlow"; font-style: normal; font-weight: 500; font-display: block; src: url(fonts/Barlow-500.woff2) format("woff2"); }
+  @font-face{ font-family: "Barlow"; font-style: normal; font-weight: 700; font-display: block; src: url(fonts/Barlow-700.woff2) format("woff2"); }
+  @font-face{ font-family: "Barlow Condensed"; font-style: normal; font-weight: 600; font-display: block; src: url(fonts/BarlowCondensed-600.woff2) format("woff2"); }
+  @font-face{ font-family: "Barlow Condensed"; font-style: normal; font-weight: 700; font-display: block; src: url(fonts/BarlowCondensed-700.woff2) format("woff2"); }
+  @font-face{ font-family: "Barlow Condensed"; font-style: normal; font-weight: 800; font-display: block; src: url(fonts/BarlowCondensed-800.woff2) format("woff2"); }
+  /* Two-sided A4 flyer. Each .page is exactly 210 x 297mm (794 x 1123 CSS px). */
+  :root{
+    --lime:    #ccff00;
+    --lime-dk: #b8e600;
+    --black:   #0e0f0e;
+    --card:    #1a1c1a;
+    --card-ln: #2c2f2c;
+    --paper:   #f4f4ef;
+    --ink:     #111211;
+    --grey:    #5c5f5c;
+    --grey-lt: #a9aca9;
+  }
+  @page{ size: A4; margin: 0; }
+  *{ box-sizing: border-box; margin: 0; padding: 0; }
+  html{ -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body{
+    background: #3a3c3a;
+    font-family: "Barlow", system-ui, sans-serif;
+    color: #fff;
+  }
+  .page{
+    position: relative;
+    width: 794px;
+    height: 1123px;
+    margin: 32px auto;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0,0,0,.45);
+  }
+  @media print{
+    body{ background: none; }
+    .page{ margin: 0; box-shadow: none; page-break-after: always; break-after: page; }
+    .page:last-child{ page-break-after: auto; break-after: auto; }
+  }
+  .cond{ font-family: "Barlow Condensed", "Arial Narrow", sans-serif; font-weight: 800; text-transform: uppercase; }
+  .lime{ color: var(--lime); }
+  svg.ic{ width: 1em; height: 1em; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+  /* ================= PAGE 1 — FRONT ================= */
+  .front{
+    background:
+      repeating-linear-gradient(135deg, rgba(255,255,255,.028) 0 14px, transparent 14px 28px),
+      var(--black);
+  }
+  .front .band{
+    position: absolute; top: -40px; right: -60px;
+    width: 330px; height: 620px;
+    background: #1b1d1b;
+    transform: skewX(-38deg);
+    transform-origin: top right;
+  }
+  .front .slash{
+    position: absolute; top: -20px; right: 30px;
+    width: 26px; height: 250px;
+    background: var(--lime);
+    transform: skewX(-42deg);
+    transform-origin: top right;
+  }
+  .front .corner{
+    position: absolute; left: 0; bottom: 0;
+    width: 0; height: 0;
+    border-left: 56px solid var(--lime);
+    border-top: 88px solid transparent;
+  }
+
+  .logo{ position: absolute; left: 47px; top: 44px; width: 160px; text-align: center; }
+  .logo svg{ display: block; margin: 0 auto; width: 90px; height: 90px; }
+  .logo .word{ font-size: 50px; line-height: .82; letter-spacing: -.5px; color: #fff; margin-top: 4px; }
+  .logo .bar{ height: 7px; background: var(--lime); margin: 3px 2px 0; transform: skewX(-20deg); }
+  .logo .sub{ font-family: "Barlow", sans-serif; font-weight: 700; font-size: 10px; letter-spacing: 3.6px; margin-top: 5px; padding-left: 3px; }
+
+  .hero{ position: absolute; left: 44px; top: 222px; }
+  .hero h1{ line-height: .8; letter-spacing: -1px; }
+  .hero .l1{ display: block; font-size: 116px; color: #fff; }
+  .hero .l2{ display: block; font-size: 164px; color: var(--lime); margin-top: 8px; }
+
+  .badge{
+    position: absolute; left: 596px; top: 282px;
+    width: 154px; height: 154px; border-radius: 50%;
+    background: var(--lime);
+    box-shadow: 0 0 0 4px var(--lime), 0 0 0 7px var(--black), 0 0 0 9px var(--lime);
+    color: var(--black);
+    transform: rotate(8deg);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    text-align: center;
+  }
+  .badge .big{ font-family: "Barlow Condensed", sans-serif; font-weight: 800; font-size: 44px; line-height: .8; letter-spacing: -.5px; }
+  .badge .small{ font-size: 13px; letter-spacing: 1px; margin-top: 6px; }
+
+  .intro{
+    position: absolute; left: 47px; top: 482px; width: 640px;
+    font-size: 17.5px; line-height: 1.45; color: #e6e7e6;
+  }
+  .intro b{ color: #fff; font-weight: 700; }
+
+  .steps{ position: absolute; left: 47px; top: 558px; width: 700px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .step{
+    position: relative; height: 154px;
+    background: var(--card); border: 1px solid var(--card-ln); border-radius: 14px;
+    padding: 15px 16px;
+  }
+  .step .num{ position: absolute; right: 14px; top: 8px; font-size: 38px; color: #2e312e; }
+  .step .icb{ width: 42px; height: 42px; border-radius: 50%; background: var(--lime); color: var(--black); display: grid; place-items: center; font-size: 20px; }
+  .step h3{ font-size: 25px; color: var(--lime); margin-top: 11px; line-height: 1; }
+  .step p{ font-size: 14.5px; line-height: 1.4; color: #d6d8d6; margin-top: 6px; }
+
+  .cta{
+    position: absolute; left: 47px; top: 737px; width: 700px; height: 207px;
+    background: var(--lime); border-radius: 18px; color: var(--black);
+    padding: 26px 26px 0;
+  }
+  .cta .lead{ display: flex; align-items: center; gap: 10px; font-size: 22px; letter-spacing: .6px; }
+  .cta .lead svg{ font-size: 30px; }
+  .cta .num{ font-size: 76px; line-height: .9; letter-spacing: -1px; margin-top: 10px; }
+  .cta .office{ font-size: 21px; letter-spacing: .6px; margin-top: 14px; }
+  .qr{ position: absolute; right: 22px; top: 22px; text-align: center; }
+  .qr .box{ width: 128px; height: 128px; background: #fff; border-radius: 10px; padding: 8px; }
+  .qr .box svg{ width: 100%; height: 100%; display: block; }
+  .qr .cap{ font-size: 13.5px; line-height: 1.1; letter-spacing: .6px; margin-top: 9px; }
+
+  .trust{
+    position: absolute; left: 47px; top: 992px; width: 700px;
+    border-top: 1px solid #2e312e;
+    display: grid; grid-template-columns: 1fr 1fr 1fr;
+    padding-top: 16px;
+  }
+  .trust > div{ display: flex; align-items: center; gap: 14px; padding: 0 12px; min-height: 56px; }
+  .trust > div + div{ border-left: 1px solid #2e312e; }
+  .trust svg{ font-size: 36px; color: var(--lime); flex: none; stroke-width: 2.2; }
+  .trust h4{ font-size: 17px; line-height: 1.05; letter-spacing: .3px; }
+  .trust small{ display: block; font-family: "Barlow Condensed", sans-serif; font-weight: 600; font-size: 12px; letter-spacing: 1px; color: var(--grey-lt); margin-top: 4px; text-transform: uppercase; }
+
+  /* ================= PAGE 2 — BACK ================= */
+  .back{ background: var(--paper); color: var(--ink); }
+  .back .head{
+    position: absolute; inset: 0 0 auto 0; height: 216px;
+    background: var(--black); color: #fff; overflow: hidden;
+    padding: 50px 47px 0;
+  }
+  .back .head .band{ position: absolute; top: 0; right: 40px; width: 70px; height: 216px; background: #1f221f; transform: skewX(-22deg); }
+  .back .head .slash{ position: absolute; top: 0; right: -10px; width: 44px; height: 216px; background: var(--lime); transform: skewX(-22deg); }
+  .eyebrow{ font-size: 17px; letter-spacing: 3px; color: var(--lime); }
+  .back h2{ font-size: 52px; line-height: .95; letter-spacing: -.5px; margin-top: 6px; }
+  .back .head p{ font-size: 17px; color: #d6d8d6; margin-top: 12px; }
+
+  .services{ position: absolute; left: 47px; top: 242px; width: 700px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px 14px; }
+  .svc{ background: #fff; border: 1px solid #e3e4df; border-radius: 12px; padding: 13px 14px; box-shadow: 0 1px 2px rgba(0,0,0,.04); }
+  .svc .top{ display: flex; align-items: center; gap: 12px; min-height: 42px; }
+  .svc .icb{ width: 40px; height: 40px; border-radius: 50%; background: var(--black); color: var(--lime); display: grid; place-items: center; font-size: 19px; flex: none; }
+  .svc h3{ font-size: 21px; line-height: 1; letter-spacing: .3px; }
+  .svc p{ font-size: 13.5px; line-height: 1.33; color: var(--grey); margin-top: 10px; }
+  .svc.ask{ background: var(--lime); border-color: var(--lime); padding: 16px 14px; }
+  .svc.ask h3{ font-size: 27px; white-space: nowrap; }
+  .svc.ask p{ color: var(--ink); font-size: 14.5px; }
+
+  .cover{
+    position: absolute; left: 47px; top: 530px; width: 329px; height: 318px;
+    background: #fff; border: 1px solid #e3e4df; border-radius: 12px; padding: 12px 14px;
+  }
+  .tag{ display: inline-block; background: var(--lime); font-size: 23px; padding: 2px 6px 0; line-height: 1.05; letter-spacing: .3px; }
+  .map{ margin-top: 8px; width: 301px; height: 221px; border-radius: 6px; border: 1px solid #dfe0da; background: #ecede7; overflow: hidden; }
+  .map svg{ width: 100%; height: 100%; display: block; }
+  .map text{ font-family: "Barlow Condensed", sans-serif; font-weight: 700; font-size: 8.5px; fill: #111; }
+  .cover .note{ font-size: 12px; margin-top: 7px; line-height: 1.35; color: var(--grey); }
+  .cover .note b{ color: var(--ink); font-size: 12.5px; }
+
+  .why{ position: absolute; left: 397px; top: 528px; width: 350px; }
+  .why ul{ list-style: none; margin-top: 10px; }
+  .why li{ display: flex; align-items: center; gap: 10px; font-size: 14.2px; line-height: 1.2; margin-bottom: 11px; letter-spacing: -.1px; }
+  .why li .tick{ width: 22px; height: 22px; border-radius: 50%; background: var(--black); color: var(--lime); display: grid; place-items: center; font-size: 12px; flex: none; }
+  .why li .tick svg{ stroke-width: 3.5; }
+  .why li b{ font-weight: 700; }
+  .warn{
+    margin-top: 8px; border: 1.5px dashed var(--ink); border-radius: 12px;
+    padding: 12px 14px; display: flex; gap: 12px;
+  }
+  .warn > svg{ font-size: 34px; flex: none; margin-top: 2px; }
+  .warn h4{ font-size: 18px; letter-spacing: .4px; line-height: 1; }
+  .warn p{ font-size: 13.5px; line-height: 1.4; margin-top: 4px; }
+
+  .foot{
+    position: absolute; left: 0; right: 0; bottom: 0; height: 241px;
+    background: var(--black); color: #fff; overflow: hidden;
+    padding: 20px 47px 0;
+  }
+  .foot .wedge{ position: absolute; left: 0; top: 0; width: 0; height: 0; border-top: 70px solid var(--lime); border-right: 50px solid transparent; }
+  .foot .band{ position: absolute; left: -60px; top: 60px; width: 60px; height: 260px; background: #1d201d; transform: skewX(-32deg); }
+  .foot h2{ position: relative; font-size: 50px; color: var(--lime); line-height: 1; }
+  .contacts{ display: grid; grid-template-columns: 286px 250px; row-gap: 14px; margin-top: 14px; position: relative; }
+  .contacts > div{ display: flex; align-items: center; gap: 12px; }
+  .contacts .icb{ width: 40px; height: 40px; border-radius: 50%; background: var(--lime); color: var(--black); display: grid; place-items: center; font-size: 19px; flex: none; }
+  .contacts small{ display: block; font-family: "Barlow Condensed", sans-serif; font-weight: 700; font-size: 12.5px; letter-spacing: 1.6px; color: var(--grey-lt); text-transform: uppercase; }
+  .contacts strong{ display: block; font-family: "Barlow Condensed", sans-serif; font-weight: 700; font-size: 23px; line-height: 1.05; }
+  .foot .qr{ right: 47px; top: 24px; }
+  .foot .qr .box{ width: 124px; height: 124px; }
+  .foot .qr .cap{ color: #fff; }
+</style>
+</head>
+<body>
+
+<!-- Shared icon & graphic definitions -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-camera" viewBox="0 0 24 24"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></symbol>
+    <symbol id="i-send" viewBox="0 0 24 24"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4 20-7z"/></symbol>
+    <symbol id="i-truck" viewBox="0 0 24 24"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.62L18.3 9.38a1 1 0 0 0-.78-.38H14"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></symbol>
+    <symbol id="i-whatsapp" viewBox="0 0 24 24"><path d="M3 21l1.65-3.8a9 9 0 1 1 3.4 2.9L3 21"/><path d="M9 10a.5.5 0 0 0 1 0V9a.5.5 0 0 0-1 0v1a5 5 0 0 0 5 5h1a.5.5 0 0 0 0-1h-1a.5.5 0 0 0 0 1"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
+    <symbol id="i-file" viewBox="0 0 24 24"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M8 13h8"/><path d="M8 17h8"/><path d="M8 9h2"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></symbol>
+    <symbol id="i-home" viewBox="0 0 24 24"><path d="M3 10l9-7 9 7v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22v-8h6v8"/></symbol>
+    <symbol id="i-sofa" viewBox="0 0 24 24"><path d="M20 9V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v3"/><path d="M2 16a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-5a2 2 0 0 0-4 0v1.5a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5V11a2 2 0 0 0-4 0z"/><path d="M4 18v2"/><path d="M20 18v2"/></symbol>
+    <symbol id="i-hardhat" viewBox="0 0 24 24"><path d="M10 10V5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v5"/><path d="M14 6a6 6 0 0 1 6 6v3"/><path d="M4 15v-3a6 6 0 0 1 6-6"/><rect x="2" y="15" width="20" height="4" rx="1"/></symbol>
+    <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></symbol>
+    <symbol id="i-trash" viewBox="0 0 24 24"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6"/><path d="M14 11v6"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+    <symbol id="i-alert" viewBox="0 0 24 24"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></symbol>
+    <!-- WhatsApp QR: https://wa.me/447777365390 -->
+    <symbol id="qr" viewBox="0 0 25 25"><path stroke="#000" d="M0 0.5h7m2 0h1m1 0h2m2 0h2m1 0h7m-25 1h1m5 0h1m2 0h1m1 0h5m2 0h1m5 0h1m-25 1h1m1 0h3m1 0h1m2 0h1m1 0h1m2 0h2m2 0h1m1 0h3m1 0h1m-25 1h1m1 0h3m1 0h1m4 0h1m3 0h2m1 0h1m1 0h3m1 0h1m-25 1h1m1 0h3m1 0h1m5 0h2m1 0h1m2 0h1m1 0h3m1 0h1m-25 1h1m5 0h1m1 0h2m5 0h1m2 0h1m5 0h1m-25 1h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7m-14 1h1m2 0h2m-16 1h1m2 0h1m1 0h2m1 0h3m2 0h1m3 0h1m1 0h1m-20 1h2m1 0h3m1 0h1m1 0h1m1 0h1m1 0h2m2 0h2m5 0h1m-24 1h4m1 0h1m1 0h1m1 0h3m5 0h1m4 0h2m-25 1h1m2 0h1m6 0h2m1 0h1m1 0h3m2 0h1m-21 1h1m3 0h3m1 0h3m1 0h3m3 0h2m1 0h1m1 0h2m-24 1h1m1 0h2m4 0h1m1 0h1m2 0h1m1 0h4m1 0h2m1 0h1m-25 1h1m1 0h2m2 0h3m2 0h3m5 0h2m1 0h1m1 0h1m-24 1h1m2 0h2m1 0h1m2 0h2m1 0h2m1 0h3m1 0h1m2 0h1m-24 1h4m1 0h3m6 0h9m-15 1h4m1 0h1m1 0h2m3 0h2m2 0h1m-25 1h7m3 0h1m2 0h1m1 0h2m1 0h1m1 0h2m1 0h2m-25 1h1m5 0h1m1 0h2m1 0h1m3 0h2m3 0h5m-25 1h1m1 0h3m1 0h1m3 0h1m2 0h1m2 0h6m1 0h1m-24 1h1m1 0h3m1 0h1m1 0h3m2 0h2m4 0h4m-23 1h1m1 0h3m1 0h1m2 0h2m2 0h1m1 0h1m3 0h2m1 0h1m1 0h1m-25 1h1m5 0h1m2 0h1m1 0h1m1 0h1m1 0h4m2 0h1m-22 1h7m1 0h1m4 0h7m3 0h2"/></symbol>
+  </defs>
+</svg>
+
+<!-- ============================ FRONT ============================ -->
+<section class="page front">
+  <div class="band"></div>
+  <div class="slash"></div>
+  <div class="corner"></div>
+
+  <div class="logo">
+    <svg viewBox="0 0 100 100" aria-hidden="true">
+      <!-- open ring with a play-arrow breaking out at lower right -->
+      <path d="M72 80 A36 36 0 1 1 86 56" fill="none" stroke="#fff" stroke-width="20"/>
+      <polygon points="58,60 98,74 70,96" fill="#ccff00"/>
+    </svg>
+    <div class="word cond">Offload</div>
+    <div class="bar"></div>
+    <div class="sub">WASTE REMOVAL</div>
+  </div>
+
+  <div class="hero">
+    <h1 class="cond"><span class="l1">Got a load?</span><span class="l2">Offload.</span></h1>
+  </div>
+
+  <div class="badge">
+    <div class="big">Same<br>day</div>
+    <div class="small cond">Collections*</div>
+  </div>
+
+  <p class="intro">Fast, reliable rubbish removal for <b>homes, businesses &amp; builders</b> across Leeds &amp; West Yorkshire. You point – we lift, load &amp; take it away.</p>
+
+  <div class="steps">
+    <div class="step">
+      <span class="num cond">1</span>
+      <div class="icb"><svg class="ic"><use href="#i-camera"/></svg></div>
+      <h3 class="cond">Snap it</h3>
+      <p>Take a photo of whatever needs to go.</p>
+    </div>
+    <div class="step">
+      <span class="num cond">2</span>
+      <div class="icb"><svg class="ic"><use href="#i-send"/></svg></div>
+      <h3 class="cond">Send it</h3>
+      <p>WhatsApp it to us for a quick, clear quote.</p>
+    </div>
+    <div class="step">
+      <span class="num cond">3</span>
+      <div class="icb"><svg class="ic"><use href="#i-truck"/></svg></div>
+      <h3 class="cond">Sorted</h3>
+      <p>We load it, take it away &amp; dispose of it legally.</p>
+    </div>
+  </div>
+
+  <div class="cta">
+    <div class="lead cond"><svg class="ic"><use href="#i-whatsapp"/></svg>WhatsApp us a photo for a free quote</div>
+    <div class="num cond">07777 365390</div>
+    <div class="office cond">Or call the office: 0113 460 5439</div>
+    <div class="qr">
+      <div class="box"><svg><use href="#qr"/></svg></div>
+      <div class="cap cond">Scan to<br>WhatsApp us</div>
+    </div>
+  </div>
+
+  <div class="trust">
+    <div>
+      <svg class="ic"><use href="#i-clock"/></svg>
+      <h4 class="cond">Same-day service<small>*When capacity allows</small></h4>
+    </div>
+    <div>
+      <svg class="ic"><use href="#i-file"/></svg>
+      <h4 class="cond">Licensed waste carrier<small>CBDU662023</small></h4>
+    </div>
+    <div>
+      <svg class="ic"><use href="#i-shield"/></svg>
+      <h4 class="cond">£2M public liability<small>Fully insured</small></h4>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ BACK ============================ -->
+<section class="page back">
+  <header class="head">
+    <div class="band"></div>
+    <div class="slash"></div>
+    <div class="eyebrow cond">What we clear</div>
+    <h2 class="cond">If it's gotta go, <span class="lime">we'll take it.</span></h2>
+    <p>One call. One van. Job done – from a single sofa to a full house.</p>
+  </header>
+
+  <div class="services">
+    <div class="svc">
+      <div class="top"><div class="icb"><svg class="ic"><use href="#i-home"/></svg></div><h3 class="cond">House<br>clearances</h3></div>
+      <p>Full or part clearances – lofts, garages, sheds, end-of-tenancy &amp; probate.</p>
+    </div>
+    <div class="svc">
+      <div class="top"><div class="icb"><svg class="ic"><use href="#i-sofa"/></svg></div><h3 class="cond">Furniture<br>removal</h3></div>
+      <p>Sofas, beds, mattresses, wardrobes, white goods &amp; more.</p>
+    </div>
+    <div class="svc">
+      <div class="top"><div class="icb"><svg class="ic"><use href="#i-hardhat"/></svg></div><h3 class="cond">Builders waste</h3></div>
+      <p>Rubble, timber, packaging &amp; strip-out waste from homes and sites.</p>
+    </div>
+    <div class="svc">
+      <div class="top"><div class="icb"><svg class="ic"><use href="#i-leaf"/></svg></div><h3 class="cond">Garden<br>clearance</h3></div>
+      <p>Green waste, cuttings, old sheds, fencing &amp; garden junk.</p>
+    </div>
+    <div class="svc">
+      <div class="top"><div class="icb"><svg class="ic"><use href="#i-trash"/></svg></div><h3 class="cond">General waste</h3></div>
+      <p>Bags, boxes, clutter &amp; one-off loads – big or small.</p>
+    </div>
+    <div class="svc ask">
+      <h3 class="cond">Not on the list?</h3>
+      <p>Send us a photo – if we can legally take it, we will.</p>
+    </div>
+  </div>
+
+  <div class="cover">
+    <span class="tag cond">Where we cover</span>
+    <div class="map">
+      <svg viewBox="0 0 301 221" aria-label="Coverage map centred on Leeds">
+        <defs>
+          <pattern id="dots" width="10" height="10" patternUnits="userSpaceOnUse"><circle cx="5" cy="5" r=".8" fill="#cfd1c9"/></pattern>
+        </defs>
+        <rect width="301" height="221" fill="url(#dots)"/>
+        <circle cx="140" cy="115" r="101" fill="#e4f7a3" stroke="#a6cf1f" stroke-width="2"/>
+        <circle cx="140" cy="115" r="50" fill="#d4f55c" stroke="#8fb315" stroke-width="1.2" stroke-dasharray="4 3"/>
+        <!-- roads -->
+        <g stroke="#9c9e98" stroke-width="2.4" fill="none" stroke-linecap="round">
+          <path d="M170 25 C180 60 182 90 180 110 L188 170"/>
+          <path d="M140 115 L180 102"/>
+          <path d="M150 128 L220 131 L262 132"/>
+          <path d="M150 124 L158 200"/>
+          <path d="M125 125 L55 165"/>
+          <path d="M150 124 L180 130"/>
+        </g>
+        <g stroke="#fff" stroke-width="1" fill="none" stroke-linecap="round">
+          <path d="M170 25 C180 60 182 90 180 110 L188 170"/>
+          <path d="M140 115 L180 102"/>
+          <path d="M150 128 L220 131 L262 132"/>
+          <path d="M150 124 L158 200"/>
+          <path d="M125 125 L55 165"/>
+        </g>
+        <!-- towns -->
+        <g fill="#111">
+          <circle cx="141" cy="48" r="2.6"/><text x="146" y="51">Harrogate</text>
+          <circle cx="237" cy="59" r="2.6"/><text x="215" y="57">York</text>
+          <circle cx="83" cy="71" r="2.6"/><text x="60" y="74">Ilkley</text>
+          <circle cx="112" cy="77" r="2.6"/><text x="88" y="80">Otley</text>
+          <circle cx="174" cy="69" r="2.6"/><text x="179" y="72">Wetherby</text>
+          <circle cx="198" cy="84" r="2.6"/><text x="203" y="87">Tadcaster</text>
+          <circle cx="98" cy="118" r="2.6"/><text x="61" y="121">Bradford</text>
+          <circle cx="173" cy="118" r="2.6"/><text x="178" y="121">Garforth</text>
+          <circle cx="238" cy="118" r="2.6"/><text x="214" y="122">Selby</text>
+          <circle cx="75" cy="144" r="2.6"/><text x="46" y="147">Halifax</text>
+          <circle cx="129" cy="152" r="2.6"/><text x="85" y="155">Dewsbury</text>
+          <circle cx="178" cy="139" r="2.6"/><text x="183" y="142">Castleford</text>
+          <circle cx="152" cy="155" r="2.6"/><text x="157" y="158">Wakefield</text>
+          <circle cx="98" cy="171" r="2.6"/><text x="46" y="174">Huddersfield</text>
+        </g>
+        <!-- Leeds pin -->
+        <circle cx="140" cy="115" r="11" fill="#111"/><circle cx="140" cy="115" r="7" fill="#ccff00"/><circle cx="140" cy="115" r="4" fill="#111"/>
+        <rect x="115" y="130" width="50" height="16" rx="2" fill="#111"/>
+        <text x="140" y="142" text-anchor="middle" style="fill:#ccff00;font-size:12px;font-weight:800">LEEDS</text>
+        <!-- key -->
+        <rect x="6" y="194" width="118" height="20" rx="3" fill="#fff"/>
+        <circle cx="17" cy="204" r="5" fill="#ccff00" stroke="#8fb315"/>
+        <text x="26" y="207">Approx. 20-mile core area</text>
+      </svg>
+    </div>
+    <p class="note"><b>Based in Leeds, covering West Yorkshire &amp; beyond.</b><br>Outside the area? Message us – we'll always try.</p>
+  </div>
+
+  <div class="why">
+    <span class="tag cond">Why Offload?</span>
+    <ul>
+      <li><span class="tick"><svg class="ic"><use href="#i-check"/></svg></span><span><b>Registered waste carrier</b> – licence CBDU662023</span></li>
+      <li><span class="tick"><svg class="ic"><use href="#i-check"/></svg></span><span><b>£2M public liability</b> insurance</span></li>
+      <li><span class="tick"><svg class="ic"><use href="#i-check"/></svg></span><span><b>Same-day</b> collections when capacity allows</span></li>
+      <li><span class="tick"><svg class="ic"><use href="#i-check"/></svg></span><span><b>We do the lifting</b> – from lofts, gardens &amp; sites</span></li>
+      <li><span class="tick"><svg class="ic"><use href="#i-check"/></svg></span><span><b>Quick quotes</b> from a photo on WhatsApp</span></li>
+    </ul>
+    <div class="warn">
+      <svg class="ic"><use href="#i-alert"/></svg>
+      <div>
+        <h4 class="cond">Know who takes your waste</h4>
+        <p>If your rubbish is fly-tipped, <u>you</u> can be fined. Always use a registered waste carrier – like us.</p>
+      </div>
+    </div>
+  </div>
+
+  <footer class="foot">
+    <div class="wedge"></div>
+    <div class="band"></div>
+    <h2 class="cond">Ready to offload?</h2>
+    <div class="contacts">
+      <div><div class="icb"><svg class="ic"><use href="#i-whatsapp"/></svg></div><div><small>WhatsApp a photo</small><strong>07777 365390</strong></div></div>
+      <div><div class="icb"><svg class="ic"><use href="#i-phone"/></svg></div><div><small>Call us</small><strong>0113 460 5439</strong></div></div>
+      <div><div class="icb"><svg class="ic"><use href="#i-mail"/></svg></div><div><small>Email</small><strong>info@offloadwaste.com</strong></div></div>
+      <div><div class="icb"><svg class="ic"><use href="#i-globe"/></svg></div><div><small>Online</small><strong>offloadwaste.com</strong></div></div>
+    </div>
+    <div class="qr">
+      <div class="box"><svg><use href="#qr"/></svg></div>
+      <div class="cap cond">Scan to<br>WhatsApp us</div>
+    </div>
+  </footer>
+</section>
+
+</body>
+</html>
