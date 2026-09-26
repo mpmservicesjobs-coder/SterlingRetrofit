@@ -6,6 +6,7 @@ const config: NextConfig = {
   // The PDF reads the logo and fonts from disk at run time.
   outputFileTracingIncludes: { "/**": ["./assets/**"] },
   poweredByHeader: false,
+  devIndicators: false,
   async headers() {
     return [
       {
