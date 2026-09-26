@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Offload Waste Removal – A5 Door Drop Flyer</title>
+<style>
+@font-face{font-family:Anton;src:url(fonts/anton-latin-400-normal.woff2) format("woff2");font-weight:400}
+@font-face{font-family:"Barlow Condensed";src:url(fonts/barlow-condensed-latin-600-normal.woff2) format("woff2");font-weight:600}
+@font-face{font-family:"Barlow Condensed";src:url(fonts/barlow-condensed-latin-700-normal.woff2) format("woff2");font-weight:700}
+@font-face{font-family:"Barlow Condensed";src:url(fonts/barlow-condensed-latin-800-normal.woff2) format("woff2");font-weight:800}
+@font-face{font-family:Barlow;src:url(fonts/barlow-latin-500-normal.woff2) format("woff2");font-weight:500}
+@font-face{font-family:Barlow;src:url(fonts/barlow-latin-700-normal.woff2) format("woff2");font-weight:700}
+
+/* A5 = 148 x 210 mm trim. +3 mm bleed each side = 154 x 216 mm. Safe area = 5 mm inside trim. */
+@page{size:437pt 613pt;margin:0}
+:root{
+  --lime:#CAF90A; --lime-deep:#A9D400; --ink:#0E0F0C; --ink-2:#1A1C17; --ink-3:#2A2D25;
+  --paper:#F5F6F0; --grey:#5B5F55; --white:#fff;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:#777}
+body{font-family:Barlow,sans-serif;color:var(--ink);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.page{width:437pt;height:613pt;position:relative;overflow:hidden;page-break-after:always;break-after:page}
+.page:last-child{page-break-after:auto;break-after:auto}
+.safe{position:absolute;left:9mm;right:9mm;top:9mm;bottom:9mm}
+svg.ico{width:100%;height:100%;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.anton{font-family:Anton,sans-serif;font-weight:400;text-transform:uppercase;line-height:.9;letter-spacing:.2mm}
+.cond{font-family:"Barlow Condensed",sans-serif;text-transform:uppercase}
+
+/* ============ FRONT ============ */
+.front{background:var(--ink);color:var(--white)}
+.front .deco{position:absolute;inset:0;width:100%;height:100%}
+.f-top{display:flex;justify-content:space-between;align-items:flex-start}
+.f-top img{width:31mm;display:block}
+.f-tags{font-family:"Barlow Condensed";font-weight:700;font-size:3.5mm;line-height:1.12;letter-spacing:.35mm;text-transform:uppercase;text-align:right;margin-top:2mm}
+.f-tags b{color:var(--lime);font-weight:800}
+.f-head{margin-top:5mm;position:relative}
+.f-head .l1{color:var(--white);display:block;white-space:nowrap}
+.f-head .l2{color:var(--lime);display:block;white-space:nowrap;margin-top:1.2mm}
+.f-sub{margin-top:4mm;font-size:3.9mm;line-height:1.3;font-weight:500;color:#D9DCD2;max-width:124mm}
+.f-sub b{color:var(--white);font-weight:700}
+
+.steps{margin-top:5mm;display:grid;grid-template-columns:repeat(3,1fr);gap:2.5mm}
+.step{background:var(--ink-2);border:.35mm solid var(--ink-3);border-radius:3mm;padding:3mm 3mm 3.2mm;position:relative}
+.step .n{position:absolute;top:2.4mm;right:2.8mm;font-family:Anton;font-size:7mm;color:var(--ink-3);line-height:1}
+.step .i{width:8mm;height:8mm;border-radius:50%;background:var(--lime);color:var(--ink);padding:1.8mm;margin-bottom:1.6mm}
+.step .i svg{stroke-width:2.3}
+.step h4{font-family:"Barlow Condensed";font-weight:800;font-size:5mm;text-transform:uppercase;letter-spacing:.2mm;line-height:1;color:var(--lime)}
+.step p{font-size:3.05mm;line-height:1.3;color:#C9CCC1;margin-top:1mm}
+
+.cta{margin-top:4.5mm;background:var(--lime);color:var(--ink);border-radius:4mm;padding:4.2mm 4.2mm 4.2mm 5mm;display:flex;align-items:center;gap:4mm;position:relative}
+.cta .txt{flex:1;min-width:0}
+.cta .kick{display:flex;align-items:center;gap:2mm;font-family:"Barlow Condensed";font-weight:800;font-size:4.4mm;text-transform:uppercase;letter-spacing:.2mm;line-height:1}
+.cta .kick .wa{width:6.5mm;height:6.5mm;flex:none}
+.cta .num{font-family:Anton;font-size:12.6mm;line-height:1;margin-top:2mm;letter-spacing:.3mm;white-space:nowrap}
+.cta .or{font-family:"Barlow Condensed";font-weight:700;font-size:4.1mm;text-transform:uppercase;margin-top:2mm;letter-spacing:.2mm}
+.cta .or b{font-weight:800}
+.qr{flex:none;width:25mm;text-align:center}
+.qr .box{background:#fff;border-radius:2mm;padding:1.6mm}
+.qr .box svg{display:block;width:100%;height:auto}
+.qr .cap{font-family:"Barlow Condensed";font-weight:800;font-size:2.8mm;text-transform:uppercase;letter-spacing:.2mm;margin-top:1.2mm;line-height:1.05}
+
+.badge{position:absolute;right:1mm;top:47mm;width:27mm;height:27mm;border-radius:50%;background:var(--lime);color:var(--ink);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;transform:rotate(12deg);
+  box-shadow:0 0 0 1.1mm var(--ink),0 0 0 1.5mm var(--lime)}
+.badge .a{font-family:Anton;font-size:7.2mm;line-height:.9}
+.badge .b{font-family:"Barlow Condensed";font-weight:800;font-size:3.1mm;text-transform:uppercase;letter-spacing:.2mm;line-height:1.05;margin-top:.6mm}
+
+.trust{position:absolute;left:0;right:0;bottom:0;display:grid;grid-template-columns:1fr 1fr 1fr;border-top:.35mm solid var(--ink-3);padding-top:3.4mm}
+.trust .t{display:flex;align-items:center;gap:2.2mm;padding:0 1.5mm}
+.trust .t + .t{border-left:.35mm solid var(--ink-3)}
+.trust .t .i{width:8.5mm;height:8.5mm;flex:none;color:var(--lime)}
+.trust .t .i svg{stroke-width:1.7}
+.trust h5{font-family:"Barlow Condensed";font-weight:800;font-size:3.5mm;line-height:1.02;text-transform:uppercase;letter-spacing:.15mm}
+.trust small{display:block;font-family:"Barlow Condensed";font-weight:600;font-size:2.55mm;color:#9CA094;letter-spacing:.15mm;text-transform:uppercase;margin-top:.5mm}
+
+/* ============ BACK ============ */
+.back{background:var(--paper)}
+.b-band{position:absolute;left:0;right:0;top:0;height:42mm;background:var(--ink);overflow:hidden}
+.b-band .deco{position:absolute;inset:0;width:100%;height:100%}
+.b-head{position:relative;color:#fff}
+.b-head .k{font-family:"Barlow Condensed";font-weight:800;font-size:3.6mm;letter-spacing:.5mm;text-transform:uppercase;color:var(--lime)}
+.b-head h2{margin-top:1.5mm;white-space:nowrap}
+.b-head h2 span{color:var(--lime)}
+.b-head p{font-size:3.5mm;font-weight:500;color:#C9CCC1;margin-top:2mm}
+.b-logo{position:absolute;right:0;top:0;width:25mm}
+
+.svc{position:absolute;left:0;right:0;top:38mm;display:grid;grid-template-columns:repeat(3,1fr);gap:2.4mm}
+.card{background:#fff;border-radius:2.5mm;padding:2.6mm 2.6mm 2.8mm;box-shadow:0 .3mm 0 #D9DCD0, 0 0 0 .3mm #E4E6DC}
+.card .hd{display:flex;align-items:center;gap:2mm}.card .i{width:8mm;height:8mm;flex:none;border-radius:50%;background:var(--ink);color:var(--lime);padding:1.8mm}
+.card h4{font-family:"Barlow Condensed";font-weight:800;font-size:4.1mm;line-height:.95;text-transform:uppercase;letter-spacing:.15mm}
+.card p{font-size:2.75mm;line-height:1.28;color:var(--grey);margin-top:1.6mm}
+.card.ask{background:var(--lime);box-shadow:none;display:flex;flex-direction:column;justify-content:center}
+.card.ask h4{font-family:Anton;font-weight:400;font-size:5.6mm;line-height:.95}
+.card.ask p{color:var(--ink);font-weight:500}
+
+.mid{position:absolute;left:0;right:0;top:94mm;display:grid;grid-template-columns:64mm 1fr;gap:4mm}
+.map{background:#fff;border-radius:2.5mm;box-shadow:0 0 0 .3mm #E4E6DC;padding:2.6mm;position:relative}
+.map h3,.why h3{font-family:"Barlow Condensed";font-weight:800;font-size:4.6mm;text-transform:uppercase;letter-spacing:.2mm;line-height:1}
+.map h3 span,.why h3 span{background:var(--lime);padding:0 1mm}
+.map svg{display:block;width:100%;height:auto;margin-top:1.5mm}
+.map .note{font-size:2.5mm;line-height:1.25;color:var(--grey);margin-top:1mm}
+.map .note b{color:var(--ink)}
+.why ul{list-style:none;margin-top:2.4mm}
+.why li{display:flex;gap:1.8mm;align-items:flex-start;font-size:2.95mm;line-height:1.22;font-weight:500;margin-bottom:1.6mm}
+.why li .c{width:4.2mm;height:4.2mm;border-radius:50%;background:var(--ink);color:var(--lime);padding:.9mm;flex:none;margin-top:-.2mm}
+.why li .c svg{stroke-width:3.4}
+.why li b{font-weight:700}
+.warn{margin-top:1.2mm;border:.4mm dashed var(--ink);border-radius:2.5mm;padding:2.3mm 2.6mm;display:flex;gap:2.2mm;align-items:flex-start}
+.warn .i{width:6.5mm;height:6.5mm;flex:none}
+.warn p{font-size:2.8mm;line-height:1.28}
+.warn p b{font-family:"Barlow Condensed";font-weight:800;font-size:3.5mm;text-transform:uppercase;display:block;letter-spacing:.15mm;line-height:1.1}
+
+.b-foot{position:absolute;left:0;right:0;bottom:0;height:45mm;background:var(--ink);color:#fff;overflow:hidden}
+.b-foot .deco{position:absolute;inset:0;width:100%;height:100%}
+.contact{position:absolute;left:9mm;right:9mm;bottom:9mm;top:5mm;display:flex;gap:4mm;align-items:stretch}
+.contact .l{flex:1;min-width:0}
+.contact h3{font-size:8.2mm;color:var(--lime);white-space:nowrap}
+.rows{margin-top:2.6mm;display:grid;grid-template-columns:1fr 1fr;gap:1.9mm 3mm}
+.row{display:flex;align-items:center;gap:1.8mm;min-width:0}
+.row .i{width:6.4mm;height:6.4mm;border-radius:50%;background:var(--lime);color:var(--ink);padding:1.35mm;flex:none}
+.row .i svg{stroke-width:2.3}
+.row small{display:block;font-family:"Barlow Condensed";font-weight:700;font-size:2.5mm;text-transform:uppercase;letter-spacing:.2mm;color:#9CA094;line-height:1}
+.row span{display:block;font-family:"Barlow Condensed";font-weight:800;font-size:4.6mm;line-height:1.05;white-space:nowrap;letter-spacing:.1mm}
+.row.sm span{font-size:3.7mm}
+.contact .qr{width:24mm;align-self:center}
+.contact .qr .cap{color:#fff}
+.legal{position:absolute;left:9mm;right:9mm;bottom:3.2mm;font-size:2.1mm;color:#7E8277;letter-spacing:.1mm;display:none}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <symbol id="i-house" viewBox="0 0 24 24"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 10v10h13V10"/><path d="M10 20v-5.5h4V20"/></symbol>
+    <symbol id="i-sofa" viewBox="0 0 24 24"><path d="M5 11V8.5A2.5 2.5 0 0 1 7.5 6h9A2.5 2.5 0 0 1 19 8.5V11"/><path d="M3 11.5a1.8 1.8 0 0 1 3.6 0V14h10.8v-2.5a1.8 1.8 0 0 1 3.6 0V18H3z"/><path d="M5.5 18v2M18.5 18v2"/></symbol>
+    <symbol id="i-hat" viewBox="0 0 24 24"><path d="M2.5 18h19"/><path d="M4.5 18v-2.5a7.5 7.5 0 0 1 15 0V18"/><path d="M10 8.3V5.5h4v2.8"/><path d="M9 9l.6 5M15 9l-.6 5"/></symbol>
+    <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M5 20c-.5-9.5 5-15 15-15 .5 9.5-5 15-14 15"/><path d="M4 21l10-10"/></symbol>
+    <symbol id="i-bin" viewBox="0 0 24 24"><path d="M3.5 6.5h17"/><path d="M9 6.5V4h6v2.5"/><path d="M5.5 6.5 6.8 20.5h10.4l1.3-14"/><path d="M10 10.5v6.5M14 10.5v6.5"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5.2l3.5 2.2"/></symbol>
+    <symbol id="i-doc" viewBox="0 0 24 24"><path d="M6.5 3h8l4 4v14h-12z"/><path d="M14.5 3v4h4"/><path d="M9.5 11.5h6M9.5 14.5h6M9.5 17.5h4"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 2.8 19.5 5.6v6c0 5-3.4 8.3-7.5 9.6-4.1-1.3-7.5-4.6-7.5-9.6v-6z"/><path d="m8.6 12 2.4 2.4 4.4-4.8"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M6.5 3.5h3l1.8 4.6-2.3 1.5a10.5 10.5 0 0 0 5.4 5.4l1.5-2.3 4.6 1.8v3A2 2 0 0 1 18.5 19.5 15 15 0 0 1 4.5 5.5a2 2 0 0 1 2-2z"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5.5" width="18" height="13" rx="2"/><path d="m3.5 7 8.5 6 8.5-6"/></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.6 2.6 3.8 5.6 3.8 9s-1.2 6.4-3.8 9c-2.6-2.6-3.8-5.6-3.8-9S9.4 5.6 12 3z"/></symbol>
+    <symbol id="i-camera" viewBox="0 0 24 24"><path d="M3.5 8.5h3.5l2-3h6l2 3h3.5v11h-17z"/><circle cx="12" cy="13.5" r="3.4"/></symbol>
+    <symbol id="i-send" viewBox="0 0 24 24"><path d="M21 3 3 10.2l7.2 3 3 7.8z"/><path d="M21 3 10.2 13.2"/></symbol>
+    <symbol id="i-truck" viewBox="0 0 24 24"><path d="M2.5 5.5h11.5v11H2.5z"/><path d="M14 9h4l3.5 4.2v3.3H14"/><circle cx="6.5" cy="17.5" r="2"/><circle cx="17.5" cy="17.5" r="2"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m4.5 12.5 5 5 10-11"/></symbol>
+    <symbol id="i-alert" viewBox="0 0 24 24"><path d="M12 3.2 22 20.5H2z"/><path d="M12 9.5v5M12 17.4v.1"/></symbol>
+    <symbol id="i-wa" viewBox="0 0 24 24"><path d="M12 2.8a9.2 9.2 0 0 0-8 13.8L2.8 21.2l4.8-1.2A9.2 9.2 0 1 0 12 2.8z"/><path fill="currentColor" stroke="none" d="M8.9 7.2c.3 0 .5 0 .7.5l.9 2.1c.1.2.1.4 0 .6l-.4.6-.4.5c-.1.1-.2.3 0 .6.5.9 1.2 1.7 2 2.3.6.5 1.2.8 1.8 1 .2.1.4.1.6-.1l.9-1.1c.2-.2.4-.2.6-.1l2 .9c.2.1.4.2.4.4 0 .4 0 1.2-.5 1.7-.6.6-1.6 1-2.5.9-1.2-.1-2.9-.8-4.4-2.1-1.4-1.3-2.4-2.8-2.8-4-.3-1-.1-1.9.4-2.6.3-.3.6-.5.8-.5z"/></symbol>
+  </defs>
+</svg>
+
+<!-- ======================= FRONT ======================= -->
+<section class="page front">
+  <svg class="deco" viewBox="0 0 154 216" preserveAspectRatio="none" aria-hidden="true">
+    <defs>
+      <pattern id="stripes" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(-40)">
+        <rect width="3" height="6" fill="#141612"/>
+      </pattern>
+    </defs>
+    <rect x="0" y="0" width="154" height="216" fill="url(#stripes)" opacity=".9"/>
+    <rect x="0" y="0" width="154" height="216" fill="url(#fade)"/>
+    <!-- lime diagonal slashes bleeding off the right edge -->
+    <polygon points="154,36 154,58 118,100 118,78" fill="#CAF90A" opacity=".0"/>
+    <polygon points="0,150 0,172 30,136 30,114" fill="#CAF90A" opacity="0"/>
+    <polygon points="126,-2 146,-2 100,54 80,54" fill="#1C1F18"/>
+    <polygon points="156,-2 162,-2 118,52 112,52" fill="#CAF90A"/>
+    <polygon points="-2,196 -2,218 12,218" fill="#CAF90A"/>
+  </svg>
+
+  <div class="safe">
+    <div class="f-top">
+      <img src="logo-light.png" alt="Offload Waste Removal">
+      
+    </div>
+
+    <h1 class="f-head anton">
+      <span class="l1" data-fit="100">Got a load?</span>
+      <span class="l2" data-fit="100">Offload.</span>
+    </h1>
+    <p class="f-sub">Fast, reliable rubbish removal for <b>homes, businesses &amp; builders</b> across Leeds &amp; West Yorkshire. You point – we lift, load &amp; take it away.</p>
+
+    <div class="steps">
+      <div class="step"><span class="n">1</span><div class="i"><svg class="ico"><use href="#i-camera"/></svg></div><h4>Snap it</h4><p>Take a photo of whatever needs to go.</p></div>
+      <div class="step"><span class="n">2</span><div class="i"><svg class="ico"><use href="#i-send"/></svg></div><h4>Send it</h4><p>WhatsApp it to us for a quick, clear quote.</p></div>
+      <div class="step"><span class="n">3</span><div class="i"><svg class="ico"><use href="#i-truck"/></svg></div><h4>Sorted</h4><p>We load it, take it away &amp; dispose of it legally.</p></div>
+    </div>
+
+    <div class="cta">
+      <div class="txt">
+        <div class="kick"><svg class="ico wa"><use href="#i-wa"/></svg>WhatsApp us a photo for a free quote</div>
+        <div class="num">07777 365390</div>
+        <div class="or">Or call the office: <b>0113 460 5439</b></div>
+      </div>
+      <div class="qr"><div class="box">{{QR}}</div><div class="cap">Scan to<br>WhatsApp us</div></div>
+    </div>
+
+    <div class="badge"><div class="a">Same<br>day</div><div class="b">collections*</div></div>
+
+    <div class="trust">
+      <div class="t"><div class="i"><svg class="ico"><use href="#i-clock"/></svg></div><div><h5>Same-day service</h5><small>*When capacity allows</small></div></div>
+      <div class="t"><div class="i"><svg class="ico"><use href="#i-doc"/></svg></div><div><h5>Licensed waste carrier</h5><small>CBDU592092</small></div></div>
+      <div class="t"><div class="i"><svg class="ico"><use href="#i-shield"/></svg></div><div><h5>£2M public liability</h5><small>Fully insured</small></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= BACK ======================= -->
+<section class="page back">
+  <div class="b-band">
+    <svg class="deco" viewBox="0 0 154 43" preserveAspectRatio="none" aria-hidden="true">
+      <polygon points="132,0 150,0 128,43 110,43" fill="#1C1F18"/>
+      <polygon points="150,0 156,0 156,6 137,43 131,43" fill="#CAF90A"/>
+    </svg>
+  </div>
+
+  <div class="safe">
+    <div class="b-head">
+      <div class="k">What we clear</div>
+      <h2 class="anton"><span style="color:#fff" data-fit="118">If it's gotta go, <span>we'll take it.</span></span></h2>
+      <p>One call. One van. Job done – from a single sofa to a full house.</p>
+    </div>
+
+    <div class="svc">
+      <div class="card"><div class="hd"><div class="i"><svg class="ico"><use href="#i-house"/></svg></div><h4>House clearances</h4></div><p>Full or part clearances – lofts, garages, sheds, end-of-tenancy &amp; probate.</p></div>
+      <div class="card"><div class="hd"><div class="i"><svg class="ico"><use href="#i-sofa"/></svg></div><h4>Furniture removal</h4></div><p>Sofas, beds, mattresses, wardrobes, white goods &amp; more.</p></div>
+      <div class="card"><div class="hd"><div class="i"><svg class="ico"><use href="#i-hat"/></svg></div><h4>Builders waste</h4></div><p>Rubble, timber, packaging &amp; strip-out waste from homes and sites.</p></div>
+      <div class="card"><div class="hd"><div class="i"><svg class="ico"><use href="#i-leaf"/></svg></div><h4>Garden clearance</h4></div><p>Green waste, cuttings, old sheds, fencing &amp; garden junk.</p></div>
+      <div class="card"><div class="hd"><div class="i"><svg class="ico"><use href="#i-bin"/></svg></div><h4>General waste</h4></div><p>Bags, boxes, clutter &amp; one-off loads – big or small.</p></div>
+      <div class="card ask"><h4>Not on the list?</h4><p>Send us a photo – if we can legally take it, we will.</p></div>
+    </div>
+
+    <div class="mid">
+      <div class="map">
+        <h3><span>Where we cover</span></h3>
+        {{MAP}}
+        <div class="note"><b>Based in Leeds, covering West Yorkshire &amp; beyond.</b> Outside the area? Message us – we'll always try.</div>
+      </div>
+      <div class="why">
+        <h3><span>Why Offload?</span></h3>
+        <ul>
+          <li><span class="c"><svg class="ico"><use href="#i-check"/></svg></span><span><b>Registered waste carrier</b> – licence CBDU592092</span></li>
+          <li><span class="c"><svg class="ico"><use href="#i-check"/></svg></span><span><b>£2M public liability</b> insurance</span></li>
+          <li><span class="c"><svg class="ico"><use href="#i-check"/></svg></span><span><b>Same-day</b> collections when capacity allows</span></li>
+          <li><span class="c"><svg class="ico"><use href="#i-check"/></svg></span><span><b>We do the lifting</b> – from lofts, gardens &amp; sites</span></li>
+          <li><span class="c"><svg class="ico"><use href="#i-check"/></svg></span><span><b>Quick quotes</b> from a photo on WhatsApp</span></li>
+        </ul>
+        <div class="warn">
+          <svg class="ico i"><use href="#i-alert"/></svg>
+          <p><b>Know who takes your waste</b>If your rubbish is fly-tipped, <u>you</u> can be fined. Always use a registered waste carrier – like us.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="b-foot">
+    <svg class="deco" viewBox="0 0 154 47" preserveAspectRatio="none" aria-hidden="true">
+      <polygon points="0,0 10,0 0,14" fill="#CAF90A"/>
+      <polygon points="18,0 26,0 0,36 0,25" fill="#1C1F18"/>
+    </svg>
+    <div class="contact">
+      <div class="l">
+        <h3 class="anton">Ready to offload?</h3>
+        <div class="rows">
+          <div class="row"><div class="i"><svg class="ico"><use href="#i-wa"/></svg></div><div><small>WhatsApp a photo</small><span>07777 365390</span></div></div>
+          <div class="row"><div class="i"><svg class="ico"><use href="#i-phone"/></svg></div><div><small>Call us</small><span>0113 460 5439</span></div></div>
+          <div class="row sm"><div class="i"><svg class="ico"><use href="#i-mail"/></svg></div><div><small>Email</small><span>info@offloadwaste.com</span></div></div>
+          <div class="row sm"><div class="i"><svg class="ico"><use href="#i-globe"/></svg></div><div><small>Online</small><span>offloadwaste.com</span></div></div>
+        </div>
+      </div>
+      <div class="qr"><div class="box">{{QR}}</div><div class="cap">Scan to<br>WhatsApp us</div></div>
+    </div>
+  </div>
+</section>
+
+<script>
+// Fit headline lines exactly to a width in mm
+document.fonts.ready.then(()=>{
+  const mm = 96/25.4;
+  document.querySelectorAll('[data-fit]').forEach(el=>{
+    const target = parseFloat(el.dataset.fit)*mm;
+    el.style.display='inline-block'; el.style.fontSize='100px';
+    const w = el.getBoundingClientRect().width;
+    el.style.fontSize = (100*target/w)+'px'; el.style.display='block';
+  });
+  document.body.dataset.ready='1';
+});
+</script>
+</body>
+</html>
