@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Offload Waste Removal | A4 Flyer</title>
+<title>Offload Waste Removal | Builders A4 Flyer</title>
 <meta name="robots" content="noindex">
 <style>
   @font-face{ font-family: "Barlow"; font-style: normal; font-weight: 400; font-display: block; src: url(fonts/Barlow-400.woff2) format("woff2"); }
@@ -12,10 +12,9 @@
   @font-face{ font-family: "Barlow Condensed"; font-style: normal; font-weight: 600; font-display: block; src: url(fonts/BarlowCondensed-600.woff2) format("woff2"); }
   @font-face{ font-family: "Barlow Condensed"; font-style: normal; font-weight: 700; font-display: block; src: url(fonts/BarlowCondensed-700.woff2) format("woff2"); }
   @font-face{ font-family: "Barlow Condensed"; font-style: normal; font-weight: 800; font-display: block; src: url(fonts/BarlowCondensed-800.woff2) format("woff2"); }
-  /* Two-sided A4 flyer. Each .page is exactly 210 x 297mm (794 x 1123 CSS px). */
+  /* Two-sided A4 flyer for builders & renovators. Each .page is exactly 210 x 297mm (794 x 1123 CSS px). */
   :root{
     --lime:    #ccff00;
-    --lime-dk: #b8e600;
     --black:   #0e0f0e;
     --card:    #1a1c1a;
     --card-ln: #2c2f2c;
@@ -64,7 +63,7 @@
   }
   .front .slash{
     position: absolute; top: -20px; right: 30px;
-    width: 26px; height: 250px;
+    width: 26px; height: 200px;
     background: var(--lime);
     transform: skewX(-42deg);
     transform-origin: top right;
@@ -75,17 +74,17 @@
     border-left: 56px solid var(--lime);
     border-top: 88px solid transparent;
   }
-
   .logo{ position: absolute; left: 44px; top: 40px; width: 176px; height: 166px; color: #fff; }
   .logo svg{ width: 100%; height: 100%; display: block; }
 
-  .hero{ position: absolute; left: 44px; top: 222px; }
-  .hero h1{ line-height: .8; letter-spacing: -1px; }
-  .hero .l1{ display: block; font-size: 116px; color: #fff; }
-  .hero .l2{ display: block; font-size: 164px; color: var(--lime); margin-top: 8px; }
+  .hero{ position: absolute; left: 44px; top: 234px; }
+  .hero .eyebrow{ font-size: 20px; letter-spacing: 3px; color: var(--lime); }
+  .hero h1{ line-height: .82; letter-spacing: -1px; margin-top: 10px; }
+  .hero .l1{ display: block; font-size: 86px; color: #fff; }
+  .hero .l2{ display: block; font-size: 140px; color: var(--lime); margin-top: 6px; }
 
   .badge{
-    position: absolute; left: 596px; top: 282px;
+    position: absolute; left: 592px; top: 96px;
     width: 154px; height: 154px; border-radius: 50%;
     background: var(--lime);
     box-shadow: 0 0 0 4px var(--lime), 0 0 0 7px var(--black), 0 0 0 9px var(--lime);
@@ -94,18 +93,18 @@
     display: flex; flex-direction: column; align-items: center; justify-content: center;
     text-align: center;
   }
-  .badge .big{ font-family: "Barlow Condensed", sans-serif; font-weight: 800; font-size: 44px; line-height: .8; letter-spacing: -.5px; }
-  .badge .small{ font-size: 13px; letter-spacing: 1px; margin-top: 6px; }
+  .badge .big{ font-family: "Barlow Condensed", sans-serif; font-weight: 800; font-size: 46px; line-height: .8; letter-spacing: -.5px; }
+  .badge .small{ font-size: 13px; letter-spacing: 1px; margin-top: 7px; }
 
   .intro{
-    position: absolute; left: 47px; top: 482px; width: 640px;
+    position: absolute; left: 47px; top: 482px; width: 680px;
     font-size: 17.5px; line-height: 1.45; color: #e6e7e6;
   }
   .intro b{ color: #fff; font-weight: 700; }
 
-  .steps{ position: absolute; left: 47px; top: 558px; width: 700px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .steps{ position: absolute; left: 47px; top: 568px; width: 700px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
   .step{
-    position: relative; height: 154px;
+    position: relative; height: 150px;
     background: var(--card); border: 1px solid var(--card-ln); border-radius: 14px;
     padding: 15px 16px;
   }
@@ -115,7 +114,7 @@
   .step p{ font-size: 14.5px; line-height: 1.4; color: #d6d8d6; margin-top: 6px; }
 
   .cta{
-    position: absolute; left: 47px; top: 737px; width: 700px; height: 207px;
+    position: absolute; left: 47px; top: 740px; width: 700px; height: 207px;
     background: var(--lime); border-radius: 18px; color: var(--black);
     padding: 26px 26px 0;
   }
@@ -163,30 +162,39 @@
   .svc.ask h3{ font-size: 27px; white-space: nowrap; }
   .svc.ask p{ color: var(--ink); font-size: 14.5px; }
 
-  .cover{
+  .tag{ display: inline-block; background: var(--lime); font-size: 23px; padding: 2px 6px 0; line-height: 1.05; letter-spacing: .3px; }
+
+  /* Skip vs Offload comparison */
+  .vs{
     position: absolute; left: 47px; top: 530px; width: 329px; height: 318px;
     background: #fff; border: 1px solid #e3e4df; border-radius: 12px; padding: 12px 14px;
   }
-  .tag{ display: inline-block; background: var(--lime); font-size: 23px; padding: 2px 6px 0; line-height: 1.05; letter-spacing: .3px; }
-  .map{ margin-top: 8px; width: 301px; height: 221px; border-radius: 6px; border: 1px solid #dfe0da; background: #ecede7; overflow: hidden; }
-  .map svg{ width: 100%; height: 100%; display: block; }
-  .map text{ font-family: "Barlow Condensed", sans-serif; font-weight: 700; font-size: 8.5px; fill: #111; }
-  .cover .note{ font-size: 12px; margin-top: 7px; line-height: 1.35; color: var(--grey); }
-  .cover .note b{ color: var(--ink); font-size: 12.5px; }
+  .vs table{ width: 100%; border-collapse: collapse; margin-top: 10px; table-layout: fixed; }
+  .vs th{ font-family: "Barlow Condensed", sans-serif; font-weight: 800; font-size: 16px; letter-spacing: .6px; text-transform: uppercase; padding: 6px 8px; text-align: left; }
+  .vs th.skip{ background: #e6e7e2; color: var(--grey); border-radius: 6px 0 0 0; }
+  .vs th.off{ background: var(--black); color: var(--lime); border-radius: 0 6px 0 0; }
+  .vs td{ font-size: 12.3px; line-height: 1.25; padding: 7px 8px; vertical-align: top; border-bottom: 1px solid #ecede8; }
+  .vs td.skip{ color: #7b7e7a; background: #f7f7f4; }
+  .vs td.off{ font-weight: 700; background: #f8ffe0; }
+  .vs td span{ display: flex; gap: 6px; align-items: flex-start; }
+  .vs td svg{ font-size: 12px; flex: none; margin-top: 1px; stroke-width: 3.2; }
+  .vs td.skip svg{ color: #b0b3ae; }
+  .vs td.off svg{ color: var(--ink); }
+  .vs .note{ font-size: 11.5px; color: var(--grey); margin-top: 8px; line-height: 1.35; }
 
   .why{ position: absolute; left: 397px; top: 528px; width: 350px; }
   .why ul{ list-style: none; margin-top: 10px; }
-  .why li{ display: flex; align-items: center; gap: 10px; font-size: 14.2px; line-height: 1.2; margin-bottom: 11px; letter-spacing: -.1px; }
+  .why li{ display: flex; align-items: center; gap: 10px; font-size: 14.2px; line-height: 1.2; margin-bottom: 10px; letter-spacing: -.1px; }
   .why li .tick{ width: 22px; height: 22px; border-radius: 50%; background: var(--black); color: var(--lime); display: grid; place-items: center; font-size: 12px; flex: none; }
   .why li .tick svg{ stroke-width: 3.5; }
   .why li b{ font-weight: 700; }
   .warn{
-    margin-top: 8px; border: 1.5px dashed var(--ink); border-radius: 12px;
+    margin-top: 6px; border: 1.5px dashed var(--ink); border-radius: 12px;
     padding: 12px 14px; display: flex; gap: 12px;
   }
   .warn > svg{ font-size: 34px; flex: none; margin-top: 2px; }
   .warn h4{ font-size: 18px; letter-spacing: .4px; line-height: 1; }
-  .warn p{ font-size: 13.5px; line-height: 1.4; margin-top: 4px; }
+  .warn p{ font-size: 13.2px; line-height: 1.4; margin-top: 4px; }
 
   .foot{
     position: absolute; left: 0; right: 0; bottom: 0; height: 241px;
@@ -229,20 +237,21 @@
     </symbol>
     <symbol id="i-camera" viewBox="0 0 24 24"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></symbol>
     <symbol id="i-send" viewBox="0 0 24 24"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4 20-7z"/></symbol>
-    <symbol id="i-truck" viewBox="0 0 24 24"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.62L18.3 9.38a1 1 0 0 0-.78-.38H14"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></symbol>
+    <symbol id="i-truck" viewBox="0 0 24 24"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.650a1 1 0 0 0-.22-.62L18.300 9.380a1 1 0 0 0-.78-.38H14"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></symbol>
     <symbol id="i-whatsapp" viewBox="0 0 24 24"><path d="M3 21l1.65-3.8a9 9 0 1 1 3.4 2.9L3 21"/><path d="M9 10a.5.5 0 0 0 1 0V9a.5.5 0 0 0-1 0v1a5 5 0 0 0 5 5h1a.5.5 0 0 0 0-1h-1a.5.5 0 0 0 0 1"/></symbol>
     <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
     <symbol id="i-file" viewBox="0 0 24 24"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M8 13h8"/><path d="M8 17h8"/><path d="M8 9h2"/></symbol>
     <symbol id="i-shield" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></symbol>
-    <symbol id="i-home" viewBox="0 0 24 24"><path d="M3 10l9-7 9 7v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22v-8h6v8"/></symbol>
-    <symbol id="i-sofa" viewBox="0 0 24 24"><path d="M20 9V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v3"/><path d="M2 16a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-5a2 2 0 0 0-4 0v1.5a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5V11a2 2 0 0 0-4 0z"/><path d="M4 18v2"/><path d="M20 18v2"/></symbol>
-    <symbol id="i-hardhat" viewBox="0 0 24 24"><path d="M10 10V5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v5"/><path d="M14 6a6 6 0 0 1 6 6v3"/><path d="M4 15v-3a6 6 0 0 1 6-6"/><rect x="2" y="15" width="20" height="4" rx="1"/></symbol>
-    <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></symbol>
-    <symbol id="i-trash" viewBox="0 0 24 24"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6"/><path d="M14 11v6"/></symbol>
-    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
+    <symbol id="i-bricks" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="1.5"/><path d="M2 9.33h20"/><path d="M2 14.67h20"/><path d="M8 4v5.33"/><path d="M16 4v5.33"/><path d="M12 9.33v5.34"/><path d="M8 14.67V20"/><path d="M16 14.67V20"/></symbol>
+    <symbol id="i-axe" viewBox="0 0 24 24"><path d="m14 12-8.5 8.5a2.12 2.12 0 1 1-3-3L11 9"/><path d="M15 13 9 7l4-4 6 6h3a8 8 0 0 1-7 7z"/></symbol>
+    <symbol id="i-bath" viewBox="0 0 24 24"><path d="M9 6 6.5 3.5a1.5 1.5 0 0 0-1-.5C4.683 3 4 3.683 4 4.5V17a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-5"/><path d="M10 5 8 7"/><path d="M2 12h20"/><path d="M7 19v2"/><path d="M17 19v2"/></symbol>
+    <symbol id="i-door" viewBox="0 0 24 24"><path d="M13 4h3a2 2 0 0 1 2 2v14"/><path d="M2 20h3"/><path d="M13 20h9"/><path d="M10 12v.01"/><path d="M13 4.562v16.157a1 1 0 0 1-1.242.97L5 20V5.562a2 2 0 0 1 1.515-1.94l4-1A2 2 0 0 1 13 3.561Z"/></symbol>
+    <symbol id="i-package" viewBox="0 0 24 24"><path d="M16.5 9.4 7.55 4.24"/><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="M3.27 6.96 12 12.01l8.73-5.05"/><path d="M12 22.08V12"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.910a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
     <symbol id="i-mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></symbol>
     <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></symbol>
     <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></symbol>
     <symbol id="i-alert" viewBox="0 0 24 24"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></symbol>
     <!-- WhatsApp QR: https://wa.me/447777365390 -->
     <symbol id="qr" viewBox="0 0 25 25"><path stroke="#000" d="M0 0.5h7m2 0h1m1 0h2m2 0h2m1 0h7m-25 1h1m5 0h1m2 0h1m1 0h5m2 0h1m5 0h1m-25 1h1m1 0h3m1 0h1m2 0h1m1 0h1m2 0h2m2 0h1m1 0h3m1 0h1m-25 1h1m1 0h3m1 0h1m4 0h1m3 0h2m1 0h1m1 0h3m1 0h1m-25 1h1m1 0h3m1 0h1m5 0h2m1 0h1m2 0h1m1 0h3m1 0h1m-25 1h1m5 0h1m1 0h2m5 0h1m2 0h1m5 0h1m-25 1h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7m-14 1h1m2 0h2m-16 1h1m2 0h1m1 0h2m1 0h3m2 0h1m3 0h1m1 0h1m-20 1h2m1 0h3m1 0h1m1 0h1m1 0h1m1 0h2m2 0h2m5 0h1m-24 1h4m1 0h1m1 0h1m1 0h3m5 0h1m4 0h2m-25 1h1m2 0h1m6 0h2m1 0h1m1 0h3m2 0h1m-21 1h1m3 0h3m1 0h3m1 0h3m3 0h2m1 0h1m1 0h2m-24 1h1m1 0h2m4 0h1m1 0h1m2 0h1m1 0h4m1 0h2m1 0h1m-25 1h1m1 0h2m2 0h3m2 0h3m5 0h2m1 0h1m1 0h1m-24 1h1m2 0h2m1 0h1m2 0h2m1 0h2m1 0h3m1 0h1m2 0h1m-24 1h4m1 0h3m6 0h9m-15 1h4m1 0h1m1 0h2m3 0h2m2 0h1m-25 1h7m3 0h1m2 0h1m1 0h2m1 0h1m1 0h2m1 0h2m-25 1h1m5 0h1m1 0h2m1 0h1m3 0h2m3 0h5m-25 1h1m1 0h3m1 0h1m3 0h1m2 0h1m2 0h6m1 0h1m-24 1h1m1 0h3m1 0h1m1 0h3m2 0h2m4 0h4m-23 1h1m1 0h3m1 0h1m2 0h2m2 0h1m1 0h1m3 0h2m1 0h1m1 0h1m-25 1h1m5 0h1m2 0h1m1 0h1m1 0h1m1 0h4m2 0h1m-22 1h7m1 0h1m4 0h7m3 0h2"/></symbol>
@@ -257,23 +266,24 @@
 
   <div class="logo" aria-label="Offload Waste Removal"><svg><use href="#logo"/></svg></div>
 
-  <div class="hero">
-    <h1 class="cond"><span class="l1">Got a load?</span><span class="l2">Offload.</span></h1>
-  </div>
-
   <div class="badge">
-    <div class="big">Same<br>day</div>
-    <div class="small cond">Collections*</div>
+    <div class="big">No skip<br>needed</div>
+    <div class="small cond">Site clearances</div>
   </div>
 
-  <p class="intro">Fast, reliable rubbish removal for <b>homes, businesses &amp; builders</b> across Leeds &amp; West Yorkshire. You point – we lift, load &amp; take it away.</p>
+  <div class="hero">
+    <div class="eyebrow cond">For builders, trades &amp; renovators</div>
+    <h1 class="cond"><span class="l1">Not worth a skip?</span><span class="l2">Offload it.</span></h1>
+  </div>
+
+  <p class="intro">Small jobs, strip-outs &amp; renovations across Leeds &amp; West Yorkshire. <b>No skip hire, no permits, no waiting around</b> – we turn up, load up &amp; take it away.</p>
 
   <div class="steps">
     <div class="step">
       <span class="num cond">1</span>
       <div class="icb"><svg class="ic"><use href="#i-camera"/></svg></div>
-      <h3 class="cond">Snap it</h3>
-      <p>Take a photo of whatever needs to go.</p>
+      <h3 class="cond">Snap the pile</h3>
+      <p>Photo of the waste on site – bagged or loose.</p>
     </div>
     <div class="step">
       <span class="num cond">2</span>
@@ -284,7 +294,7 @@
     <div class="step">
       <span class="num cond">3</span>
       <div class="icb"><svg class="ic"><use href="#i-truck"/></svg></div>
-      <h3 class="cond">Sorted</h3>
+      <h3 class="cond">Site cleared</h3>
       <p>We load it, take it away &amp; dispose of it legally.</p>
     </div>
   </div>
@@ -320,31 +330,31 @@
   <header class="head">
     <div class="band"></div>
     <div class="slash"></div>
-    <div class="eyebrow cond">What we clear</div>
-    <h2 class="cond">If it's gotta go, <span class="lime">we'll take it.</span></h2>
-    <p>One call. One van. Job done – from a single sofa to a full house.</p>
+    <div class="eyebrow cond">Built for the trade</div>
+    <h2 class="cond">Small job? <span class="lime">Skip the skip.</span></h2>
+    <p>Strip-outs, refurbs &amp; site tidy-ups – we clear what's there, when you need it gone.</p>
   </header>
 
   <div class="services">
     <div class="svc">
-      <div class="top"><div class="icb"><svg class="ic"><use href="#i-home"/></svg></div><h3 class="cond">House<br>clearances</h3></div>
-      <p>Full or part clearances – lofts, garages, sheds, end-of-tenancy &amp; probate.</p>
+      <div class="top"><div class="icb"><svg class="ic"><use href="#i-bricks"/></svg></div><h3 class="cond">Rubble &amp;<br>hardcore</h3></div>
+      <p>Brick, block, concrete, tile &amp; plaster – bagged or loose.</p>
     </div>
     <div class="svc">
-      <div class="top"><div class="icb"><svg class="ic"><use href="#i-sofa"/></svg></div><h3 class="cond">Furniture<br>removal</h3></div>
-      <p>Sofas, beds, mattresses, wardrobes, white goods &amp; more.</p>
+      <div class="top"><div class="icb"><svg class="ic"><use href="#i-axe"/></svg></div><h3 class="cond">Timber &amp;<br>offcuts</h3></div>
+      <p>Joists, boards, skirting, pallets &amp; old joinery.</p>
     </div>
     <div class="svc">
-      <div class="top"><div class="icb"><svg class="ic"><use href="#i-hardhat"/></svg></div><h3 class="cond">Builders waste</h3></div>
-      <p>Rubble, timber, packaging &amp; strip-out waste from homes and sites.</p>
+      <div class="top"><div class="icb"><svg class="ic"><use href="#i-bath"/></svg></div><h3 class="cond">Kitchen &amp;<br>bathroom</h3></div>
+      <p>Rip-out units, worktops, suites, tiles &amp; old fittings.</p>
     </div>
     <div class="svc">
-      <div class="top"><div class="icb"><svg class="ic"><use href="#i-leaf"/></svg></div><h3 class="cond">Garden<br>clearance</h3></div>
-      <p>Green waste, cuttings, old sheds, fencing &amp; garden junk.</p>
+      <div class="top"><div class="icb"><svg class="ic"><use href="#i-door"/></svg></div><h3 class="cond">Flooring &amp;<br>fixtures</h3></div>
+      <p>Carpet, laminate, underlay, doors &amp; radiators.</p>
     </div>
     <div class="svc">
-      <div class="top"><div class="icb"><svg class="ic"><use href="#i-trash"/></svg></div><h3 class="cond">General waste</h3></div>
-      <p>Bags, boxes, clutter &amp; one-off loads – big or small.</p>
+      <div class="top"><div class="icb"><svg class="ic"><use href="#i-package"/></svg></div><h3 class="cond">Packaging &amp;<br>site waste</h3></div>
+      <p>Cardboard, wrap, empty tubs &amp; general site mess.</p>
     </div>
     <div class="svc ask">
       <h3 class="cond">Not on the list?</h3>
@@ -352,76 +362,35 @@
     </div>
   </div>
 
-  <div class="cover">
-    <span class="tag cond">Where we cover</span>
-    <div class="map">
-      <svg viewBox="0 0 301 221" aria-label="Coverage map centred on Leeds">
-        <defs>
-          <pattern id="dots" width="10" height="10" patternUnits="userSpaceOnUse"><circle cx="5" cy="5" r=".8" fill="#cfd1c9"/></pattern>
-        </defs>
-        <rect width="301" height="221" fill="url(#dots)"/>
-        <circle cx="140" cy="115" r="101" fill="#e4f7a3" stroke="#a6cf1f" stroke-width="2"/>
-        <circle cx="140" cy="115" r="50" fill="#d4f55c" stroke="#8fb315" stroke-width="1.2" stroke-dasharray="4 3"/>
-        <!-- roads -->
-        <g stroke="#9c9e98" stroke-width="2.4" fill="none" stroke-linecap="round">
-          <path d="M170 25 C180 60 182 90 180 110 L188 170"/>
-          <path d="M140 115 L180 102"/>
-          <path d="M150 128 L220 131 L262 132"/>
-          <path d="M150 124 L158 200"/>
-          <path d="M125 125 L55 165"/>
-          <path d="M150 124 L180 130"/>
-        </g>
-        <g stroke="#fff" stroke-width="1" fill="none" stroke-linecap="round">
-          <path d="M170 25 C180 60 182 90 180 110 L188 170"/>
-          <path d="M140 115 L180 102"/>
-          <path d="M150 128 L220 131 L262 132"/>
-          <path d="M150 124 L158 200"/>
-          <path d="M125 125 L55 165"/>
-        </g>
-        <!-- towns -->
-        <g fill="#111">
-          <circle cx="141" cy="48" r="2.6"/><text x="146" y="51">Harrogate</text>
-          <circle cx="237" cy="59" r="2.6"/><text x="215" y="57">York</text>
-          <circle cx="83" cy="71" r="2.6"/><text x="60" y="74">Ilkley</text>
-          <circle cx="112" cy="77" r="2.6"/><text x="88" y="80">Otley</text>
-          <circle cx="174" cy="69" r="2.6"/><text x="179" y="72">Wetherby</text>
-          <circle cx="198" cy="84" r="2.6"/><text x="203" y="87">Tadcaster</text>
-          <circle cx="98" cy="118" r="2.6"/><text x="61" y="121">Bradford</text>
-          <circle cx="173" cy="118" r="2.6"/><text x="178" y="121">Garforth</text>
-          <circle cx="238" cy="118" r="2.6"/><text x="214" y="122">Selby</text>
-          <circle cx="75" cy="144" r="2.6"/><text x="46" y="147">Halifax</text>
-          <circle cx="129" cy="152" r="2.6"/><text x="85" y="155">Dewsbury</text>
-          <circle cx="178" cy="139" r="2.6"/><text x="183" y="142">Castleford</text>
-          <circle cx="152" cy="155" r="2.6"/><text x="157" y="158">Wakefield</text>
-          <circle cx="98" cy="171" r="2.6"/><text x="46" y="174">Huddersfield</text>
-        </g>
-        <!-- Leeds pin -->
-        <circle cx="140" cy="115" r="11" fill="#111"/><circle cx="140" cy="115" r="7" fill="#ccff00"/><circle cx="140" cy="115" r="4" fill="#111"/>
-        <rect x="115" y="130" width="50" height="16" rx="2" fill="#111"/>
-        <text x="140" y="142" text-anchor="middle" style="fill:#ccff00;font-size:12px;font-weight:800">LEEDS</text>
-        <!-- key -->
-        <rect x="6" y="194" width="118" height="20" rx="3" fill="#fff"/>
-        <circle cx="17" cy="204" r="5" fill="#ccff00" stroke="#8fb315"/>
-        <text x="26" y="207">Approx. 20-mile core area</text>
-      </svg>
-    </div>
-    <p class="note"><b>Based in Leeds, covering West Yorkshire &amp; beyond.</b><br>Outside the area? Message us – we'll always try.</p>
+  <div class="vs">
+    <span class="tag cond">Skip vs Offload</span>
+    <table>
+      <thead><tr><th class="skip">Skip hire</th><th class="off">Offload</th></tr></thead>
+      <tbody>
+        <tr><td class="skip"><span><svg class="ic"><use href="#i-x"/></svg>Wait for delivery &amp; collection</span></td><td class="off"><span><svg class="ic"><use href="#i-check"/></svg>One visit, job done</span></td></tr>
+        <tr><td class="skip"><span><svg class="ic"><use href="#i-x"/></svg>Permit if it's on the road</span></td><td class="off"><span><svg class="ic"><use href="#i-check"/></svg>No permit needed</span></td></tr>
+        <tr><td class="skip"><span><svg class="ic"><use href="#i-x"/></svg>Sits on the drive for days</span></td><td class="off"><span><svg class="ic"><use href="#i-check"/></svg>Gone the same visit</span></td></tr>
+        <tr><td class="skip"><span><svg class="ic"><use href="#i-x"/></svg>You do the loading</span></td><td class="off"><span><svg class="ic"><use href="#i-check"/></svg>We do the lifting</span></td></tr>
+        <tr><td class="skip"><span><svg class="ic"><use href="#i-x"/></svg>Pay for a skip you don't fill</span></td><td class="off"><span><svg class="ic"><use href="#i-check"/></svg>Quoted on what's there</span></td></tr>
+      </tbody>
+    </table>
+    <p class="note">Based in Leeds, covering West Yorkshire &amp; beyond.</p>
   </div>
 
   <div class="why">
-    <span class="tag cond">Why Offload?</span>
+    <span class="tag cond">Perfect for</span>
     <ul>
-      <li><span class="tick"><svg class="ic"><use href="#i-check"/></svg></span><span><b>Registered waste carrier</b> – licence CBDU662023</span></li>
-      <li><span class="tick"><svg class="ic"><use href="#i-check"/></svg></span><span><b>£2M public liability</b> insurance</span></li>
-      <li><span class="tick"><svg class="ic"><use href="#i-check"/></svg></span><span><b>Same-day</b> collections when capacity allows</span></li>
-      <li><span class="tick"><svg class="ic"><use href="#i-check"/></svg></span><span><b>We do the lifting</b> – from lofts, gardens &amp; sites</span></li>
-      <li><span class="tick"><svg class="ic"><use href="#i-check"/></svg></span><span><b>Quick quotes</b> from a photo on WhatsApp</span></li>
+      <li><span class="tick"><svg class="ic"><use href="#i-check"/></svg></span><span><b>Small builders</b> – extensions, refurbs &amp; repairs</span></li>
+      <li><span class="tick"><svg class="ic"><use href="#i-check"/></svg></span><span><b>Kitchen &amp; bathroom fitters</b> – rip-out waste</span></li>
+      <li><span class="tick"><svg class="ic"><use href="#i-check"/></svg></span><span><b>Joiners, plasterers &amp; decorators</b></span></li>
+      <li><span class="tick"><svg class="ic"><use href="#i-check"/></svg></span><span><b>Landlords</b> – refurbs between tenancies</span></li>
+      <li><span class="tick"><svg class="ic"><use href="#i-check"/></svg></span><span><b>DIY renovators</b> – when the pile gets too big</span></li>
     </ul>
     <div class="warn">
       <svg class="ic"><use href="#i-alert"/></svg>
       <div>
-        <h4 class="cond">Know who takes your waste</h4>
-        <p>If your rubbish is fly-tipped, <u>you</u> can be fined. Always use a registered waste carrier – like us.</p>
+        <h4 class="cond">Your waste, your responsibility</h4>
+        <p>If site waste gets fly-tipped, <u>you</u> can be fined. Only hand it to a registered waste carrier – like us, licence CBDU662023.</p>
       </div>
     </div>
   </div>
@@ -429,7 +398,7 @@
   <footer class="foot">
     <div class="wedge"></div>
     <div class="band"></div>
-    <h2 class="cond">Ready to offload?</h2>
+    <h2 class="cond">Ready to clear the site?</h2>
     <div class="contacts">
       <div><div class="icb"><svg class="ic"><use href="#i-whatsapp"/></svg></div><div><small>WhatsApp a photo</small><strong>07777 365390</strong></div></div>
       <div><div class="icb"><svg class="ic"><use href="#i-phone"/></svg></div><div><small>Call us</small><strong>0113 460 5439</strong></div></div>
