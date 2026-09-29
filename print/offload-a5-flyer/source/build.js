@@ -35,8 +35,8 @@ let s = `<svg viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg" font-fa
 <pattern id="dots" width="2" height="2" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r=".18" fill="#C9CCBF"/></pattern></defs>
 <g clip-path="url(#mc)">
 <rect width="${W}" height="${H}" fill="#EEF0E8"/><rect width="${W}" height="${H}" fill="url(#dots)"/>
-<circle cx="${cx}" cy="${cy}" r="${20 * k}" fill="#CAF90A" fill-opacity=".38" stroke="#8FB400" stroke-width=".35"/>
-<circle cx="${cx}" cy="${cy}" r="${10 * k}" fill="#CAF90A" fill-opacity=".55" stroke="#8FB400" stroke-width=".3" stroke-dasharray="1 .8"/>`;
+<circle cx="${cx}" cy="${cy}" r="${20 * k}" fill="#CCFA0D" fill-opacity=".38" stroke="#8FB400" stroke-width=".35"/>
+<circle cx="${cx}" cy="${cy}" r="${10 * k}" fill="#CCFA0D" fill-opacity=".55" stroke="#8FB400" stroke-width=".3" stroke-dasharray="1 .8"/>`;
 // Motorway hints (approximate, stylised)
 const road = (pts, label, at) => {
   s += `<polyline points="${pts.map(p => toXY(...p).map(v => v.toFixed(2)).join(',')).join(' ')}" fill="none" stroke="#fff" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/>`;
@@ -53,10 +53,10 @@ for (const [n, la, lo, side] of towns) {
   s += `<circle cx="${x.toFixed(2)}" cy="${y.toFixed(2)}" r=".62" fill="#0E0F0C"/>`;
   s += `<text x="${tx.toFixed(2)}" y="${(y + .62).toFixed(2)}" font-size="1.85" fill="#0E0F0C" text-anchor="${side === 'l' ? 'end' : 'start'}" paint-order="stroke" stroke="#EEF0E8" stroke-width=".5">${n}</text>`;
 }
-s += `<circle cx="${cx}" cy="${cy}" r="2.4" fill="#0E0F0C"/><circle cx="${cx}" cy="${cy}" r="1.1" fill="#CAF90A"/>
-<rect x="${cx - 5.3}" y="${cy + 3}" width="10.6" height="3.4" rx=".6" fill="#0E0F0C"/><text x="${cx}" y="${cy + 5.55}" font-size="2.6" font-weight="800" fill="#CAF90A" text-anchor="middle" letter-spacing=".15">LEEDS</text>
+s += `<circle cx="${cx}" cy="${cy}" r="2.4" fill="#0E0F0C"/><circle cx="${cx}" cy="${cy}" r="1.1" fill="#CCFA0D"/>
+<rect x="${cx - 5.3}" y="${cy + 3}" width="10.6" height="3.4" rx=".6" fill="#0E0F0C"/><text x="${cx}" y="${cy + 5.55}" font-size="2.6" font-weight="800" fill="#CCFA0D" text-anchor="middle" letter-spacing=".15">LEEDS</text>
 <g transform="translate(1.5 ${H - 5.5})"><rect width="24.5" height="4.2" rx=".6" fill="#fff" fill-opacity=".9"/>
-<circle cx="2" cy="2.1" r="1.1" fill="#CAF90A" stroke="#8FB400" stroke-width=".25"/><text x="3.6" y="2.75" font-size="1.75" fill="#0E0F0C">Approx. 20-mile core area</text></g>
+<circle cx="2" cy="2.1" r="1.1" fill="#CCFA0D" stroke="#8FB400" stroke-width=".25"/><text x="3.6" y="2.75" font-size="1.75" fill="#0E0F0C">Approx. 20-mile core area</text></g>
 </g><rect width="${W}" height="${H}" rx="1.6" fill="none" stroke="#DADDD2" stroke-width=".3"/></svg>`;
 
 const qr = fs.readFileSync('qr-wa.svg', 'utf8');
